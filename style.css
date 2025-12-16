@@ -1,0 +1,375 @@
+/* ===== GLOBAL TEXT COLORS ===== */
+h1, h2, h3, h4 {
+  color: #ffffff;
+}
+
+p, span, li {
+  color: #eaeaea;
+}
+
+/* Highlight words */
+.highlight {
+  color: var(--pink);
+  text-shadow: 0 0 12px var(--pink);
+}
+/* ===== IMAGE & CARD GLOW ===== */
+.card,
+.timeline-item,
+.internship-box,
+.hobby-card,
+.about-image img {
+  box-shadow: 0 0 18px rgba(255,60,166,0.25);
+  transition: 0.4s ease;
+}
+
+.card:hover,
+.timeline-item:hover,
+.internship-box:hover,
+.hobby-card:hover {
+  box-shadow: 0 0 35px rgba(255,60,166,0.5);
+  transform: translateY(-6px);
+}
+
+:root {
+  --pink: #ff3ca6;
+  --black: #050505;
+  --text: #f1f1f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a0012, #000);
+  color: var(--text);
+
+}
+
+@keyframes bgGlow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.15); }
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(10px);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+}
+
+.logo span { color: var(--pink); }
+
+nav a {
+  margin-left: 18px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.hero span {
+  color: var(--pink);
+  text-shadow: 0 0 15px var(--pink);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 26px;
+  border-radius: 30px;
+  background: var(--pink);
+  color: #000;
+  text-decoration: none;
+  box-shadow: 0 0 20px var(--pink);
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid var(--pink);
+  color: var(--pink);
+}
+
+.section {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.section.alt {
+  background: rgba(255,255,255,0.02);
+}
+
+h2 {
+  margin-bottom: 35px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 25px;
+}
+
+.card, .timeline-item, .internship-box {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 0 15px rgba(255,60,166,0.25);
+}
+
+.about-grid {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255,60,166,0.4);
+}
+
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 30px;
+}
+
+.hobby-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ===== Fade Animations ===== */
+.fade-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s ease;
+}
+
+.fade-text.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-img {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: 1.2s ease;
+}
+
+.fade-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+/* ===== SOFT PINK GRADIENT BLOBS (FIXED) ===== */
+
+.gradient-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  animation: blobMove 20s ease-in-out infinite;
+}
+
+/* Individual blobs */
+.blob1 {
+  background: radial-gradient(circle at center,
+    rgba(255, 60, 166, 0.9),
+    rgba(255, 60, 166, 0.0) 65%);
+  top: 15%;
+  left: 10%;
+}
+
+.blob2 {
+  background: radial-gradient(circle at center,
+    rgba(255, 120, 200, 0.8),
+    rgba(255, 120, 200, 0.0) 65%);
+  bottom: 20%;
+  right: 12%;
+  animation-delay: 6s;
+}
+
+.blob3 {
+  background: radial-gradient(circle at center,
+    rgba(255, 90, 190, 0.7),
+    rgba(255, 90, 190, 0.0) 65%);
+  top: 50%;
+  left: 60%;
+  animation-delay: 12s;
+}
+
+/* Smooth floating */
+@keyframes blobMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+/* ===== HOBBIES IMAGE SHAPE MORPH ===== */
+
+.hobby-card img {
+  width: 100%;
+  height: 200px; /* keep your existing height */
+  object-fit: cover;
+  border-radius: 18px;
+  transition: box-shadow 0.4s ease;
+  animation: morphShape 8s ease-in-out infinite;
+}
+
+/* Glow on hover */
+.hobby-card:hover img {
+  box-shadow: 0 0 25px rgba(255, 60, 166, 0.6);
+}
+
+/* Shape morphing animation */
+@keyframes morphShape {
+  0% {
+    border-radius: 18px;
+  }
+  25% {
+    border-radius: 30px 10px 30px 10px;
+  }
+  50% {
+    border-radius: 10px 30px 10px 30px;
+  }
+  75% {
+    border-radius: 35px 20px 35px 20px;
+  }
+  100% {
+    border-radius: 18px;
+  }
+}
+.about-text {
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-text span {
+  display: inline-block;
+  opacity: 0;
+  white-space: nowrap;
+  
+  animation: blink 1s infinite;
+}
+/* Cursor */
+.typing::after {
+  content: " ";
+  color: #ff4da6;
+  margin-left: 5px;
+  
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: #ff3ca6;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff3ca6;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
+.about-text {
+  max-width: 520px;
+  line-height: 1.6;        /* controls line spacing */
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+.about-text p {
+  margin-bottom: 12px;     /* small, clean gap */
+}
+
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #ff3ca6;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
